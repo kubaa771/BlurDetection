@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,79 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BlurDetection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lv3-X8-ed0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="V45-Da-AoO">
+                                <rect key="frame" x="5" y="64" width="404" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EhG-R5-NYb">
+                                        <rect key="frame" x="0.0" y="0.0" width="114.5" height="30"/>
+                                        <state key="normal" image="camera.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="cameraButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IC0-ch-Vo8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nR0-cG-vsg">
+                                        <rect key="frame" x="144.5" y="0.0" width="115" height="30"/>
+                                        <state key="normal" title="Pictures"/>
+                                        <connections>
+                                            <action selector="picturesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yu6-fq-MSw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egi-7E-RJi">
+                                        <rect key="frame" x="289.5" y="0.0" width="114.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Detect blur">
+                                            <color key="titleColor" red="1" green="0.16739696670000001" blue="0.078011401960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="detectBlurButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EN1-ug-D4T"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bbc-2f-abP">
+                                <rect key="frame" x="20" y="124" width="374" height="688"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pPh-Pc-UbY">
+                                        <rect key="frame" x="8" y="8" width="358" height="672"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="1" green="0.16739696670000001" blue="0.078011401960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="pPh-Pc-UbY" secondAttribute="trailing" constant="8" id="EFx-49-qdj"/>
+                                    <constraint firstItem="pPh-Pc-UbY" firstAttribute="top" secondItem="Bbc-2f-abP" secondAttribute="top" constant="8" id="MOR-4z-V54"/>
+                                    <constraint firstItem="pPh-Pc-UbY" firstAttribute="leading" secondItem="Bbc-2f-abP" secondAttribute="leading" constant="8" id="YNm-S1-I4f"/>
+                                    <constraint firstAttribute="bottom" secondItem="pPh-Pc-UbY" secondAttribute="bottom" constant="8" id="g5k-qe-JsL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ra7-rQ-LrW"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ra7-rQ-LrW" firstAttribute="bottom" secondItem="Bbc-2f-abP" secondAttribute="bottom" constant="50" id="5QJ-8z-XdV"/>
+                            <constraint firstItem="V45-Da-AoO" firstAttribute="leading" secondItem="Ra7-rQ-LrW" secondAttribute="leading" constant="5" id="B2A-Zz-EXT"/>
+                            <constraint firstItem="Ra7-rQ-LrW" firstAttribute="trailing" secondItem="V45-Da-AoO" secondAttribute="trailing" constant="5" id="KY3-8r-Prv"/>
+                            <constraint firstItem="Ra7-rQ-LrW" firstAttribute="trailing" secondItem="Bbc-2f-abP" secondAttribute="trailing" constant="20" id="MoQ-dr-PJ9"/>
+                            <constraint firstItem="V45-Da-AoO" firstAttribute="top" secondItem="Ra7-rQ-LrW" secondAttribute="top" constant="20" id="SD4-9B-upc"/>
+                            <constraint firstItem="Bbc-2f-abP" firstAttribute="leading" secondItem="Ra7-rQ-LrW" secondAttribute="leading" constant="20" id="VHj-Kd-MT8"/>
+                            <constraint firstItem="Bbc-2f-abP" firstAttribute="top" secondItem="V45-Da-AoO" secondAttribute="bottom" constant="30" id="emg-AA-WeL"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pictureImageView" destination="pPh-Pc-UbY" id="Ewv-aC-MaB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="141" y="129"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
+    </resources>
 </document>
