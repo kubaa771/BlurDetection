@@ -77,9 +77,6 @@ class ViewController: UIViewController {
         varianceTexture?.getBytes(&result, bytesPerRow: 1*2*4, from: region, mipmapLevel: 0)
         
         let variance = result.last!
-        print(result)
-        print(region)
-        print(variance)
         
         if variance < 3 {
             self.showAlert(title: "Alert", message: "Poziom rozmycia zbyt wysoki")
